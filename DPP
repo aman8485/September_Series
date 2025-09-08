@@ -183,3 +183,20 @@ class Solution {
         //your code goes here
     }
 }
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8- Count Complete Tree Nodes
+
+class Solution {
+  
+    public int countNodes(TreeNode root) {
+        //your code goes here
+        int count=0;
+        if(root==null){
+          return 0;
+        }
+        count+=countNodes(root.left);
+        count+=countNodes(root.right);
+        return count+1;
+     
+    }
+}
