@@ -312,3 +312,32 @@ inorder(root.right,ls);
         return true;
     }
 }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+15- Two sum in BST
+
+class Solution {
+    private void inorder(TreeNode root,ArrayList<Integer> ls){
+        if(root==null) return;
+        inorder(root.left,ls);
+        ls.add(root.data);
+        inorder(root.right,ls);
+    }
+    public boolean twoSumBST(TreeNode root, int k) {
+        //your code goes here
+       ArrayList<Integer> ls=new ArrayList<>();
+       inorder(root,ls);
+       int left=0;
+       int right=ls.size()-1;
+       while(left<right){
+        if(ls.get(left)+ls.get(right)==k) return true;
+        else if(ls.get(left)+ls.get(right)>k){
+            right--;
+        }else{
+            left++;
+        }
+       }
+
+return false;
+
+    }
+}
