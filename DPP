@@ -284,3 +284,31 @@ class Solution {
         return root;
     }
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14- Binary Search Tree Iterator
+
+class BSTIterator {
+    int cnt=0;
+    ArrayList<Integer> ls=new ArrayList<>();
+    private void inorder(TreeNode root,ArrayList<Integer> ls){
+if(root==null) return;
+inorder(root.left,ls);
+ls.add(root.val);
+inorder(root.right,ls);
+    }
+
+    public BSTIterator(TreeNode root) {
+        inorder(root,ls);
+    }
+    
+    public int next() {
+       return ls.get(cnt++);
+    }
+    
+    public boolean hasNext() {
+        if(cnt==ls.size()){
+            return false;
+        }
+        return true;
+    }
+}
