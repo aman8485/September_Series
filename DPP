@@ -362,3 +362,40 @@ class Solution {
       return -1;  
     }
 }
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17 - Implement Stack using Queues
+
+class MyStack {
+    Queue<Integer>q;
+    //Queue<Integer>q2;
+
+    public MyStack() {
+        q=new LinkedList<>();
+        //q2=new LinkedList<>();
+    }
+    
+    public void push(int x) {
+        int size=q.size();
+        q.add(x);
+        while(size>0){
+            q.add(q.poll());
+            size--;
+        }  
+       
+          
+      
+    }
+    
+    public int pop() {
+        return q.poll();
+    }
+    
+    public int top() {
+        return q.peek();
+    }
+    
+    public boolean empty() {
+        return q.isEmpty();
+    }
+}
