@@ -435,3 +435,24 @@ Stack<Integer> st2;
       return st2.isEmpty();  
     }
 }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+19- Lower Bound
+
+class Solution {
+    public int lowerBound(int[] arr, int x) {
+        int s=0;
+        int e=arr.length-1;
+        int n=arr.length;
+        while(s<e){
+            int mid=(s+e)/2;
+            if(arr[mid]>=x) {
+                n= mid;
+            e=mid-1;
+            } 
+       else{
+        s=mid+1;
+       }
+     }
+     return n;
+}
+}
