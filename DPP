@@ -456,3 +456,30 @@ class Solution {
      return n;
 }
 }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20- Sort Vowels in a String
+
+class Solution {
+    public String sortVowels(String s) {
+        Set<Character> hash= Set.of('a','e','i','o','u','A','E','I','O','U');
+        List<Character> ls=new ArrayList<>();
+        for(char ch:s.toCharArray()){
+            if(hash.contains(ch)){
+                ls.add(ch);
+            }
+        }
+        Collections.sort(ls);
+        StringBuilder sb=new StringBuilder();
+        int idx=0;
+        for(char c:s.toCharArray()){
+            if(hash.contains(c)){
+                sb.append(ls.get(idx++));
+            }else{
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+    }
+}
